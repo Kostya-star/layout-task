@@ -39,9 +39,9 @@
     cursor: pointer;
 }
 
-.card__heading button:focus {
-    color: rgb(255, 132, 0);
-}
+/* .card__heading button:focus {
+    color: rgb(255, 132, 0); */
+/* } */
 
 /* THE CARD CONTENT */
 .card__body {
