@@ -20,7 +20,7 @@
         <button id="card_contentBtn">My fonts</button>
         <button id="dummy_textBtn">Buy fonts</button>
       </div>
-      <div class="card__body">
+      <!-- <div class="card__body">
         <div class="card__col_1">
           <div class="card__square square_green">
             <span>M</span>
@@ -41,6 +41,34 @@
             <p>Noto Sans covers over 30 scripts</p>
           </div>
         </div>
+      </div> -->
+      <div class="card__body">
+        <div class="card__group">
+          <input type="radio" name="color" value="red" id="radio1">
+          <div class="card__square square_green">
+            <span>M</span>
+          </div>
+          <p>Merriweather project is led by Sorkin Type</p>
+        </div>
+
+        <div class="card__col_2">
+          <div class="card__group">
+            <input type="radio" name="color" value="green" id="radio2">
+            <div class="card__square square_red">
+              <span>R</span>
+            </div>
+            <p>Roboto doesn't compromise, allowing letters</p>
+          </div>
+
+          <div class="card__group">
+            <input type="radio" name="color" value="blue" id="radio3">
+            <div class="card__square square_blue">
+              <span>Ns</span>
+            </div>
+            <p>Noto Sans covers over 30 scripts</p>
+          </div>
+        </div>
+
       </div>
       <div class="dummy_text">Some dummy text</div>
     </div>
@@ -61,12 +89,16 @@
       dummyTextContent.setAttribute('style', `display: ${content === 'dummy' ? 'block' : 'none'}`)
       activeBtn = button
     }
-    
+
     cardContentBtn.addEventListener('click', () => handleClick(cardContentBtn, 'card'))
     dummyTextBtn.addEventListener('click', () => handleClick(dummyTextBtn, 'dummy'))
-    
+
     activeBtn.setAttribute('style', 'color: rgb(255, 132, 0)');
     dummyTextContent.setAttribute('style', 'display: none')
+
+    cardContentBtn.removeEventListener('click', handleClick);
+    dummyTextBtn.removeEventListener('click', handleClick);
+
   </script>
 
 </body>

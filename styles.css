@@ -66,7 +66,7 @@
     word-wrap: break-word
 }
 
-.card__col_1 p,
+.card__group p,
 .card__col_2 p {
     width: 190px;
     display: flex;
@@ -77,8 +77,7 @@
     hyphens: auto;
 }
 
-.card__col_1 p::before,
-.card__col_2 p::before {
+.card__group p::before {
     content: '\2022';
     color: gray;
     font-size: 40px;
@@ -109,6 +108,7 @@
     opacity: .5;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: opacity 0.3s;
 }
 
 .square_green span {
@@ -136,3 +136,30 @@
     height: 78px;
     background-color: rgb(61, 107, 214);
 }
+
+.card__group {
+    position: relative;
+}
+
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  input[type="radio"] + .card__square + p {
+    opacity: 1;
+  }
+
+  input[type="radio"]:checked + .card__square {
+    opacity: .5;
+  }
+
+  input[type="radio"]:checked + .card__square + p {
+    opacity: .5;
+  }
