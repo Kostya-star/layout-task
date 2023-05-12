@@ -17,8 +17,11 @@
 /* THE ENTIRE WHITE CARD */
 
 .card {
-    padding: 10px 30px;
+    padding: 10px 10px;
     background-color: white;
+    border-radius: 10px;
+    height: 350px;
+    width: 630px;
 }
 
 /* THE CARD HEADING(BUTTONS) */
@@ -39,10 +42,6 @@
     cursor: pointer;
 }
 
-/* .card__heading button:focus {
-    color: rgb(255, 132, 0); */
-/* } */
-
 /* THE CARD CONTENT */
 .card__body {
     /* display: grid; */
@@ -50,7 +49,7 @@
     /* grid-template-columns: 1fr auto-fit; */
     display: flex;
     gap: 40px;
-    padding: 45px 50px;
+    padding: 45px 40px;
     border: 2px solid grey;
     border-radius: 5px;
 }
@@ -163,3 +162,14 @@ input[type="radio"] {
   input[type="radio"]:checked + .card__square + p {
     opacity: .5;
   }
+  
+.active {
+    color: rgb(255, 132, 0);
+}
+
+.dummy_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 30px);
+}

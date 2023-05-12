@@ -20,28 +20,6 @@
         <button id="card_contentBtn">My fonts</button>
         <button id="dummy_textBtn">Buy fonts</button>
       </div>
-      <!-- <div class="card__body">
-        <div class="card__col_1">
-          <div class="card__square square_green">
-            <span>M</span>
-          </div>
-          <p>Merriweather project is led by Sorkin Type</p>
-        </div>
-        <div class="card__col_2">
-          <div class="card__group">
-            <div class="card__square square_red">
-              <span>R</span>
-            </div>
-            <p>Roboto doesn't compromise, allowing letters</p>
-          </div>
-          <div class="card__group">
-            <div class="card__square square_blue">
-              <span>Ns</span>
-            </div>
-            <p>Noto Sans covers over 30 scripts</p>
-          </div>
-        </div>
-      </div> -->
       <div class="card__body">
         <div class="card__group">
           <input type="radio" name="color" value="red" id="radio1">
@@ -70,34 +48,57 @@
         </div>
 
       </div>
-      <div class="dummy_text">Some dummy text</div>
+      <div class="dummy_text">
+        <p>
+          Some dummy text
+        </p>
+      </div>
     </div>
   </div>
+
   <script>
-    const cardBlocksContent = document.querySelector('.card__body');
-    const dummyTextContent = document.querySelector('.dummy_text');
+    const cardContent = document.querySelector('.card__body');
+    const dummyContent = document.querySelector('.dummy_text');
+    
+    const navButtons = document.querySelectorAll('.card__heading button')
+    
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        navButtons.forEach(btn => {
+          btn.classList.remove('active')
+          btn.removeAttribute('style')
+        })
+        
+        console.log(btn);
 
-    const cardContentBtn = document.querySelector('#card_contentBtn');
-    const dummyTextBtn = document.querySelector('#dummy_textBtn');
+        btn.classList.add('active')
+        cardContent.setAttribute('style', 'display: none')
+        // dummyTextContent.setAttribute('style', `display: ${content === 'dummy' ? 'flex' : 'none'}`)
+      })
+    })
 
-    let activeBtn = cardContentBtn;
 
-    const handleClick = (button, content) => {
-      activeBtn.removeAttribute('style')
-      button.setAttribute('style', 'color: rgb(255, 132, 0)');
-      cardBlocksContent.setAttribute('style', `display: ${content === 'card' ? 'flex' : 'none'}`)
-      dummyTextContent.setAttribute('style', `display: ${content === 'dummy' ? 'block' : 'none'}`)
-      activeBtn = button
-    }
+    // const cardContentBtn = document.querySelector('#card_contentBtn');
+    // const dummyTextBtn = document.querySelector('#dummy_textBtn');
 
-    cardContentBtn.addEventListener('click', () => handleClick(cardContentBtn, 'card'))
-    dummyTextBtn.addEventListener('click', () => handleClick(dummyTextBtn, 'dummy'))
+    // let activeBtn = cardContentBtn;
 
-    activeBtn.setAttribute('style', 'color: rgb(255, 132, 0)');
-    dummyTextContent.setAttribute('style', 'display: none')
+    // const handleClick = (button, content) => {
+    //   activeBtn.removeAttribute('style')
+    //   button.setAttribute('style', 'color: rgb(255, 132, 0)');
+    //   cardBlocksContent.setAttribute('style', `display: ${content === 'card' ? 'flex' : 'none'}`)
+    //   dummyTextContent.setAttribute('style', `display: ${content === 'dummy' ? 'flex' : 'none'}`)
+    //   activeBtn = button
+    // }
 
-    cardContentBtn.removeEventListener('click', handleClick);
-    dummyTextBtn.removeEventListener('click', handleClick);
+    // cardContentBtn.addEventListener('click', () => handleClick(cardContentBtn, 'card'))
+    // dummyTextBtn.addEventListener('click', () => handleClick(dummyTextBtn, 'dummy'))
+
+    // activeBtn.setAttribute('style', 'color: rgb(255, 132, 0)');
+    // dummyTextContent.setAttribute('style', 'display: none')
+
+    // cardContentBtn.removeEventListener('click', handleClick);
+    // dummyTextBtn.removeEventListener('click', handleClick);
 
   </script>
 
