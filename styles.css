@@ -173,3 +173,48 @@ input[type="radio"] {
     align-items: center;
     height: calc(100% - 30px);
 }
+
+/* @MEDIA */
+
+@media screen and (max-width: 750px) {
+    .card {
+        width: 390px;
+        height: 560px;
+    }
+    .card__body {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card__group:has(.square_green) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card__group:has(.square_green) p {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        width: 300px;
+        height: 715px;
+    }
+    .card__group {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    .card__group:has(.square_green) p {
+        width: 190px;
+    }
+
+    .card__col_2 p {
+        margin: 0;
+    }
+
+    .square_green {
+        margin: 0;
+    }
+}

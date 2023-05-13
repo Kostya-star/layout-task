@@ -17,12 +17,12 @@
   <div class="wrapper">
     <div class="card">
       <div class="card__heading">
-        <button id="card_contentBtn">My fonts</button>
-        <button id="dummy_textBtn">Buy fonts</button>
+        <button data-target="content">My fonts</button>
+        <button data-target="dummy">Buy fonts</button>
       </div>
-      <div class="card__body">
+      <div class="card__body" data-target="content">
         <div class="card__group">
-          <input type="radio" name="color" value="red" id="radio1">
+          <input type="radio" name="color" value="red">
           <div class="card__square square_green">
             <span>M</span>
           </div>
@@ -31,7 +31,7 @@
 
         <div class="card__col_2">
           <div class="card__group">
-            <input type="radio" name="color" value="green" id="radio2">
+            <input type="radio" name="color" value="green">
             <div class="card__square square_red">
               <span>R</span>
             </div>
@@ -39,7 +39,7 @@
           </div>
 
           <div class="card__group">
-            <input type="radio" name="color" value="blue" id="radio3">
+            <input type="radio" name="color" value="blue">
             <div class="card__square square_blue">
               <span>Ns</span>
             </div>
@@ -48,7 +48,7 @@
         </div>
 
       </div>
-      <div class="dummy_text">
+      <div class="dummy_text" data-target="dummy">
         <p>
           Some dummy text
         </p>
@@ -57,49 +57,26 @@
   </div>
 
   <script>
-    const cardContent = document.querySelector('.card__body');
-    const dummyContent = document.querySelector('.dummy_text');
-    
-    const navButtons = document.querySelectorAll('.card__heading button')
-    
+    const navButtons = document.querySelectorAll('button[data-target]')
+    const contents = document.querySelectorAll('div[data-target]');
+
     navButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         navButtons.forEach(btn => {
-          btn.classList.remove('active')
-          btn.removeAttribute('style')
+          btn.style.color = 'gray'
         })
-        
-        console.log(btn);
 
-        btn.classList.add('active')
-        cardContent.setAttribute('style', 'display: none')
-        // dummyTextContent.setAttribute('style', `display: ${content === 'dummy' ? 'flex' : 'none'}`)
+        btn.style.color = 'rgb(255, 132, 0)'
+
+        contents.forEach((block, ind) => {
+          block.style.display = btn.dataset.target === block.dataset.target ? 'flex' : 'none'
+        })
       })
     })
 
-
-    // const cardContentBtn = document.querySelector('#card_contentBtn');
-    // const dummyTextBtn = document.querySelector('#dummy_textBtn');
-
-    // let activeBtn = cardContentBtn;
-
-    // const handleClick = (button, content) => {
-    //   activeBtn.removeAttribute('style')
-    //   button.setAttribute('style', 'color: rgb(255, 132, 0)');
-    //   cardBlocksContent.setAttribute('style', `display: ${content === 'card' ? 'flex' : 'none'}`)
-    //   dummyTextContent.setAttribute('style', `display: ${content === 'dummy' ? 'flex' : 'none'}`)
-    //   activeBtn = button
-    // }
-
-    // cardContentBtn.addEventListener('click', () => handleClick(cardContentBtn, 'card'))
-    // dummyTextBtn.addEventListener('click', () => handleClick(dummyTextBtn, 'dummy'))
-
-    // activeBtn.setAttribute('style', 'color: rgb(255, 132, 0)');
-    // dummyTextContent.setAttribute('style', 'display: none')
-
-    // cardContentBtn.removeEventListener('click', handleClick);
-    // dummyTextBtn.removeEventListener('click', handleClick);
-
+    navButtons[0].style.color = 'rgb(255, 132, 0)'
+    navButtons[1].style.color = 'gray'
+    contents[1].style.display = 'none'
   </script>
 
 </body>
